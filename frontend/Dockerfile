@@ -2,6 +2,7 @@ FROM node:14-alpine as build-step
     RUN mkdir -p /app/
     WORKDIR /app/
     COPY package* /app/
+    RUN npm install -g @angular/cli
     RUN npm install
     COPY . /app/
     RUN npm run build
