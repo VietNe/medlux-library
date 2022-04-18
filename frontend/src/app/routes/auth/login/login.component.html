@@ -1,0 +1,88 @@
+<div
+  class="login d-flex flex-column justify-content-center align-items-center min-h-100"
+>
+  <div class="logo mb-5">
+    <img class="w-100 mb-5" src="assets/icons/logo_text.png" alt="logo" />
+    <img class="w-100 mt-4 mb-5" src="assets/icons/logo.png" alt="logo" />
+  </div>
+
+  <form
+    class="login-form w-100 mt-5"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <!-- Email -->
+    <div class="form-group d-flex flex-column mb-4">
+      <input
+        fieldSize="large"
+        fullWidth
+        type="email"
+        nbInput
+        [status]="
+          isSubmitted && emailCtl.errors
+            ? 'danger'
+            : isSubmitted
+            ? 'success'
+            : 'basic'
+        "
+        placeholder="Nhập email"
+        class="form-control"
+        formControlName="identifier"
+      />
+
+      <p
+        *ngIf="isSubmitted && emailCtl.errors"
+        class="caption status-danger mb-0"
+      >
+        {{ emailCtl.errors["required"] && "Email không được để trống." }}
+        {{ emailCtl.errors["email"] && "Email không hợp lệ." }}
+      </p>
+    </div>
+    <!-- Password -->
+    <div class="form-group d-flex flex-column w-100 mb-4">
+      <input
+        fieldSize="large"
+        fullWidth
+        type="password"
+        nbInput
+        [status]="
+          isSubmitted && pwdCtl.errors
+            ? 'danger'
+            : isSubmitted
+            ? 'success'
+            : 'basic'
+        "
+        formControlName="password"
+        placeholder="Nhập mật khẩu"
+        class="form-control"
+      />
+
+      <p
+        *ngIf="isSubmitted && pwdCtl.errors"
+        class="caption status-danger mb-0"
+      >
+        {{ pwdCtl.errors["required"] && "Mật khẩu không được để trống." }}
+      </p>
+    </div>
+
+    <!-- Login -->
+    <button
+      class="mt-4"
+      nbButton
+      status="primary"
+      outline
+      fullWidth
+      type="submit"
+      size="large"
+    >
+      Đăng Nhập
+    </button>
+
+    <div class="fortgot-password d-flex justify-content-end mt-3">
+      <button class="px-0" type="button" nbButton ghost status="primary">
+        <nb-icon icon="sync-outline"></nb-icon>
+        Quên Mật Khẩu
+      </button>
+    </div>
+  </form>
+</div>

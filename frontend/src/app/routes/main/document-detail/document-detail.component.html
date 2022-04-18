@@ -1,0 +1,80 @@
+<div class="document-detail h-100 overflow-hidden pt-4 d-flex flex-column">
+  <ng-container *ngIf="document">
+    <div class="h3">
+      {{ document.attributes.title }}
+    </div>
+    <div class="subtitle mt-2">
+      {{ document.attributes.shortDescription }}
+    </div>
+    <div class="mt-4 flex-fill overflow-hidden">
+      <nb-tabset class="d-flex flex-column h-100">
+        <nb-tab tabTitle="THÔNG TIN">
+          <div class="document-info">
+            <p>
+              <b>{{ document.attributes.title }}</b>
+            </p>
+            <p>{{ document.attributes.origin }}</p>
+            <p>
+              Xuất bản:
+              <b>{{
+                document.attributes.publishedDate | date: "dd/MM/yyyy"
+              }}</b>
+            </p>
+
+            <p class="mb-0 mt-4"><b> Tác giả: </b></p>
+            <p class="mt-1 author">
+              {{ document.attributes.author }}
+            </p>
+            <div
+              class="mt-5 description"
+              [innerHtml]="document.attributes.longDescription"
+            ></div>
+          </div>
+        </nb-tab>
+        <nb-tab tabTitle="NỘI DUNG">
+          <div class="row mt-4">
+            <div *ngIf="!files.length" class="h6">
+              Không tìm thấy file của tài liệu này!
+            </div>
+            <div *ngIf="files.length" class="document-files col-8">
+              <div
+                *ngFor="let file of files"
+                class="document-file d-flex align-items-center justify-content-between mb-4"
+              >
+                <img
+                  [src]="getFileTypeImage(file.attributes.ext)"
+                  [alt]="file.attributes.ext"
+                  [style.width.px]="60"
+                  class="me-3"
+                />
+                <div class="flex-fill me-4">
+                  <div class="h6">{{ file.attributes.name }}</div>
+                  <div class="subtitle mt-2">
+                    {{ getFileSize(file.attributes.size) }} MB
+                  </div>
+                </div>
+                <div
+                  [style.width.px]="40"
+                  *ngIf="
+                    'pdf,png,jpg,jpeg'.includes(
+                      getFileType(file.attributes.ext)
+                    )
+                  "
+                >
+                  <a target="_blank" [href]="file.attributes.url" class="me-3"
+                    ><b> Xem </b></a
+                  >
+                </div>
+                <div class="d-flex justify-content-end" [style.width.px]="100">
+                  <a target="_blank" [href]="file.attributes.url"
+                    ><b>Tải xuống</b></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </div>
+  </ng-container>
+</div>

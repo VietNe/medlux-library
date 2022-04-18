@@ -1,0 +1,27 @@
+.document-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.form-group {
+  .search-input {
+    border-color: black;
+
+    &::placeholder {
+      color: black;
+      text-transform: initial;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: black;
+    }
+  }
+
+  button {
+    &:focus,
+    &:active {
+      box-shadow: none !important;
+    }
+  }
+}

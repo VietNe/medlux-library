@@ -1,0 +1,27 @@
+nb-menu {
+  .menu-item {
+    a {
+      text-transform: uppercase;
+    }
+
+    .menu-title {
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+  }
+}
+
+nb-menu .menu-items.ng-trigger-toggle {
+  .menu-item {
+    a.active {
+      .menu-title {
+        font-weight: bold;
+      }
+    }
+
+    .menu-title {
+      font-weight: var(--text-subtitle-2-font-weight);
+      font-size: var(--text-subtitle-2-font-size);
+    }
+  }
+}

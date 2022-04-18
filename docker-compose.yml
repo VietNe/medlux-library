@@ -1,0 +1,44 @@
+version: "3"
+services:
+  angular-service:
+    container_name: medlux_library_web
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - postgres
+  strapi:
+    container_name: medlux_library_api
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: strapi
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: XXxx11@@
+      APP_KEYS: zgXmiCJZcmsVYAAIlocnHg==,YYcWkQe6Jgjfq+kNWKx7Xg==,ideg8FZnn0eR1gJ1FkdyfA==,PU07SDA2KnQKQfGV299mWA==
+      JWT_SECRET: 0fbc3f39-21e5-4a56-90ac-55315d7f11b2
+      API_TOKEN_SALT: a0e47a378ec297e76bbcf1d5e983ad17
+      CLOUDINARY_NAME: medlux-qkit
+      CLOUDINARY_KEY: 514728173667619
+      CLOUDINARY_SECRET: AR0mzZ3UIhCGOpZFplHsvgkTgN0
+    ports:
+      - "1337:1337"
+    depends_on:
+      - postgres
+  postgres:
+    container_name: medlux_library_db
+    image: postgres
+    environment:
+      POSTGRES_DB: strapi
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: XXxx11@@
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data

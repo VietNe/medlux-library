@@ -1,0 +1,56 @@
+.document-card-item {
+  border-radius: 7px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e2e2e2;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-image {
+    border-radius: 7px;
+    // border: 1px solid black;
+    overflow: hidden;
+    height: 13rem;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .title {
+    text-transform: uppercase;
+    line-height: 1.5em;
+    max-height: 3em;
+    height: 3em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .author {
+    span {
+      color: var(--color-primary-600);
+      font-weight: bold;
+      line-height: 1.5em;
+      max-height: 3em;
+      height: 3em;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .line {
+      height: 3px;
+      width: 12px;
+      background-color: black;
+      margin-right: 12px;
+    }
+  }
+}

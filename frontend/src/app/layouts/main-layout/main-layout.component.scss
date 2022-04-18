@@ -1,0 +1,9 @@
+.sidebar {
+  border-right: 1px solid var(--color-primary-600);
+}
+
+.content {
+  max-height: calc(100vh - 36px - 4.5rem);
+  height: calc(100vh - 36px - 4.5rem);
+  overflow: hidden;
+}

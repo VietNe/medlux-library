@@ -1,0 +1,120 @@
+@forward "@nebular/theme/styles/theming";
+@use "@nebular/theme/styles/theming" as *;
+@use "@nebular/theme/styles/themes/default";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap");
+
+$nb-themes: nb-register-theme(
+  (
+    // Colors
+    color-primary-600: #927252,
+    color-primary-500: #927252,
+    color-primary-400: #a68360,
+
+    color-success-600: #7bc67b,
+    color-success-500: #7bc67b,
+    color-success-400: #7bc67b,
+    color-danger-400: #dc3545e6,
+    color-danger-500: #dc3545e6,
+    color-danger-600: #dc3545e6,
+
+    // color-basic-600: black,
+    color-primary-transparent-100: #9272520c,
+    color-primary-transparent-200: #92725216,
+    color-primary-transparent-300: #92725236,
+
+    border-basic-color-4: color-primary-transparent-300,
+
+    color-basic-default: color-primary-400,
+    color-basic-default-border: color-primary-400,
+    color-basic-basic: color-primary-500,
+    color-primary-focus: color-primary-400,
+    color-primary-focus-border: color-primary-400,
+    color-primary-active: color-primary-400,
+    color-primary-active-border: color-primary-400,
+    outline-color: white,
+    icon-basic-color: black,
+
+    // Layouts
+    layout-background-color: white,
+
+    // Typography
+    font-family-primary: "Nunito, sans-serif",
+    font-family-secondary: "Nunito, sans-serif",
+    // Text
+    text-label-font-size: 0.9rem,
+    text-subtitle-font-size: 1rem,
+    text-caption-font-size: 0.9rem,
+
+    text-subtitle-2-font-size: 0.9rem,
+    text-subtitle-2-font-weight: 500,
+
+    text-paragraph-font-size: 1rem,
+    text-paragraph-font-weight: 500,
+    // text-hint-color: color-primary-400,
+    // Toastr
+    toastr-title-text-font-size: text-heading-6-font-size,
+    toastr-text-font-size: text-subtitle-font-size,
+    toastr-icon-danger-background-color: transparent,
+    toastr-icon-success-background-color: transparent,
+
+    // Border radius
+    border-radius: 0,
+    // Button
+    button-ghost-primary-hover-background-color: white,
+    button-ghost-primary-active-background-color: white,
+    button-ghost-primary-focus-background-color: white,
+    button-ghost-primary-hover-border-color: white,
+    button-ghost-primary-active-border-color: white,
+    button-ghost-primary-focus-border-color: white,
+
+    button-ghost-basic-hover-background-color: white,
+    button-ghost-basic-active-background-color: white,
+    button-ghost-basic-focus-background-color: white,
+    button-ghost-basic-hover-border-color: white,
+    button-ghost-basic-active-border-color: white,
+    button-ghost-basic-focus-border-color: white,
+    button-ghost-basic-text-color: black,
+    button-ghost-basic-hover-text-color: black,
+    button-ghost-basic-active-text-color: black,
+    button-ghost-basic-focus-text-color: black,
+
+    // Menu
+    menu-item-divider-width: 0,
+
+    // Size
+    sidebar-width: 25rem,
+    sidebar-padding: 0,
+    icon-width: 1.8rem,
+    icon-height: 1.8rem,
+
+    // ACtions
+    actions-divider-width: 0,
+    actions-icon-color: black,
+    header-shadow: none,
+
+    // Input
+    // input-basic-border-color: color-primary-600
+    // Tabset
+    tabset-content-padding: 1rem 0,
+    menu-item-padding: 0.75rem 0,
+
+    header-height: 0,
+    button-giant-icon-size: 1.75rem,
+
+    button-outline-border-width: 2px,
+    input-large-padding: 0.7rem 0,
+    input-basic-placeholder-text-color: color-primary-600,
+    input-border-width: 2px,
+    input-large-placeholder-text-font-weight: 600,
+    input-large-placeholder-text-font-size: 0.9rem,
+    input-basic-background-color: white,
+    input-basic-hover-background-color: white,
+    input-basic-hover-border-color: color-primary-600,
+    form-field-addon-basic-text-color: black,
+    form-field-addon-basic-highlight-text-color: black,
+    form-field-addon-large-height: 2rem
+  ),
+  default,
+  default
+);

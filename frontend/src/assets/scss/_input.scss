@@ -1,0 +1,11 @@
+.form-group {
+  input.form-control {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    &::placeholder {
+      text-transform: uppercase;
+    }
+  }
+}

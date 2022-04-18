@@ -1,0 +1,35 @@
+.document-list-item {
+  transition: all 0.5s ease-in-out;
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  &:hover {
+    background-color: #e2e2e2;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .document-image {
+    border-radius: 7px;
+    // border: 1px solid black;
+    overflow: hidden;
+    height: 8rem;
+    width: 8rem;
+
+    margin-right: 3rem;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .author {
+    color: var(--color-primary-600);
+    font-weight: bold;
+  }
+
+  .description {
+    color: black;
+  }
+}

@@ -1,0 +1,22 @@
+<div
+  class="document-list-item d-flex align-items-center"
+  (click)="openDocumentDetail()"
+>
+  <div class="document-image">
+    <img
+      class="w-100 h-100"
+      [src]="coverImage"
+      [alt]="document.attributes.title"
+    />
+  </div>
+
+  <div class="document-body flex-fill">
+    <div class="title h6">{{ document.attributes.title }}</div>
+    <div class="author mt-2 caption">
+      {{ document.attributes.author }}
+    </div>
+    <div class="description mt-2 caption">
+      {{ document.attributes.shortDescription }}
+    </div>
+  </div>
+</div>

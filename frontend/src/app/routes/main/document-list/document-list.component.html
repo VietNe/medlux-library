@@ -1,0 +1,101 @@
+<div class="d-flex flex-column h-100">
+  <div class="toolbar d-flex align-items-center mt-5 col-12">
+    <div class="coutner d-flex align-items-center">
+      <img src="assets/icons/logo.png" alt="logo" [style.width.rem]="1.75" />
+      <div class="h6 mx-2">{{ items.length }}</div>
+    </div>
+    <div class="display-mode mx-5 w-25">
+      <button nbButton ghost class="p-1" size="giant">
+        <nb-icon
+          icon="list"
+          [status]="displayListType === 'list' ? 'primary' : 'basic'"
+          (click)="onChangeDisplayMode('list')"
+        ></nb-icon>
+      </button>
+      <button nbButton ghost class="p-1" size="giant">
+        <nb-icon
+          [style.padding.px]="2"
+          icon="grid"
+          [status]="displayListType === 'grid' ? 'primary' : 'basic'"
+          (click)="onChangeDisplayMode('grid')"
+        ></nb-icon>
+      </button>
+    </div>
+    <div class="search form-group w-75">
+      <nb-form-field>
+        <nb-icon nbPrefix icon="search" pack="eva"></nb-icon>
+        <input
+          fieldSize="large"
+          (keyup)="onSearch($event)"
+          fullWidth
+          type="text"
+          nbInput
+          status="basic"
+          placeholder="Tìm kiếm..."
+          class="form-control search-input ps-5"
+          [(ngModel)]="searchStr"
+        />
+        <button
+          *ngIf="searchStr.length"
+          nbSuffix
+          nbButton
+          ghost
+          status="primary"
+          (click)="clearSearch()"
+        >
+          <nb-icon icon="close-circle"> </nb-icon>
+        </button>
+      </nb-form-field>
+    </div>
+  </div>
+  <div class="document-list mt-4 flex-fill">
+    <ng-container *ngIf="items.length">
+      <div class="row">
+        <ng-container *ngIf="displayListType === 'grid'">
+          <div
+            *ngFor="
+              let item of items
+                | paginate
+                  : {
+                      itemsPerPage: this.itemsPerPage,
+                      currentPage: this.currentPage,
+                      totalItems: this.totalItems
+                    }
+            "
+            class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-12 mb-4"
+          >
+            <app-document-card-item [document]="item"></app-document-card-item>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="displayListType === 'list'">
+          <div
+            *ngFor="
+              let item of items
+                | paginate
+                  : {
+                      itemsPerPage: this.itemsPerPage,
+                      currentPage: this.currentPage,
+                      totalItems: this.totalItems
+                    }
+            "
+            class="col-12 mb-3"
+          >
+            <app-document-list-item [document]="item"></app-document-list-item>
+          </div>
+        </ng-container>
+
+        <div class="col-12" *ngIf="totalItems > itemsPerPage">
+          <app-pagination
+            [(itemsPerPage)]="itemsPerPage"
+            (onPageChange)="pagination($event)"
+          ></app-pagination>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!items.length">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="h5">Không tìm thấy tài liệu phù hợp!</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

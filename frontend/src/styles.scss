@@ -1,0 +1,37 @@
+@import "assets/scss/main";
+@import "assets/scss/themes";
+
+@import "@nebular/theme/styles/globals";
+
+@include nb-install() {
+  @include nb-theme-global();
+}
+/* You can add global styles to this file, and also import other style files */
+
+p {
+  margin: 0;
+  margin-top: 5px;
+}
+
+body {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+/**====== custom scrollbar ======**/
+::-webkit-scrollbar-track {
+  background: var(--tabset-scrollbar-background-color);
+}
+::-webkit-scrollbar {
+  width: var(--tabset-scrollbar-width);
+  height: var(--tabset-scrollbar-width);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--tabset-scrollbar-color);
+  cursor: pointer;
+  border-radius: calc(var(--tabset-scrollbar-width) * 0.5);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--tabset-scrollbar-background-color);
+}
