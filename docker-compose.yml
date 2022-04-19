@@ -6,7 +6,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "4200:80"
+      - "8132:80"
     depends_on:
       - postgres
   strapi:
@@ -28,7 +28,7 @@ services:
       CLOUDINARY_KEY: 636538296942548
       CLOUDINARY_SECRET: dp_MgclUn9aOrfkEAGJHorND31c
     ports:
-      - "1337:1337"
+      - "8131:1337"
     depends_on:
       - postgres
   postgres:
