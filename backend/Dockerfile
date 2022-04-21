@@ -11,7 +11,7 @@ COPY . .
 
 ENV NODE_ENV production
 
-# RUN yarn build
+RUN yarn build
 
 EXPOSE 1337
 
